@@ -25,18 +25,20 @@ namespace WpfApp1.Pages
         public Main(MainWindow _mainWindow)
         {
             InitializeComponent();
-            mainWindow.LoadItem();
+
+            this.mainWindow = _mainWindow;
+           // mainWindow.LoadItem();
             Load();
         }
         public void Load()
         {
             pagesListBox.Items.Clear();
-            foreach (var page in mainWindow.RequestItem)
+         /*   foreach (var page in mainWindow.RequestItem)
             {
                 RequestItem pageControl = new RequestItem();
                 pageControl.DataContext = page;
                 pagesListBox.Items.Add(pageControl);
-            }
+            }*/
         }
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -56,22 +58,26 @@ namespace WpfApp1.Pages
         }
         public void TransitionAddComment(object sender, RoutedEventArgs e)
         {
-            mainWindow.frame.Navigate(new Pages.AddComment(mainWindow));
+            Pages.AddComment addComment = new AddComment(mainWindow);
+            addComment.ShowDialog();
         }
 
         public void TransitionReport(object sender, RoutedEventArgs e)
         {
-            mainWindow.frame.Navigate(new Pages.Report(mainWindow));
+           Report report = new Report(mainWindow);
+            report.ShowDialog();
         }
 
         public void TransitionQRCode(object sender, RoutedEventArgs e)
         {
-            mainWindow.frame.Navigate(new Pages.QRCode(mainWindow));
+            Pages.QRCode qRCode = new QRCode(mainWindow);
+            qRCode.ShowDialog();
         }
 
         public void TransitionStatistic(object sender, RoutedEventArgs e)
         {
-            mainWindow.frame.Navigate(new Pages.Statistic(mainWindow));
+            Pages.Statistic addComment = new Statistic(mainWindow);
+            addComment.ShowDialog();
         }
 
 
@@ -83,7 +89,8 @@ namespace WpfApp1.Pages
 
         public void AddRequest(object sender, RoutedEventArgs e)
         {
-            mainWindow.frame.Navigate(new Pages.RequestEdit(mainWindow));
+            RequestEdit requestEdit = new RequestEdit(mainWindow);
+            requestEdit.ShowDialog();
         }
     }
 }

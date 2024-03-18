@@ -9,44 +9,66 @@
       Title="Main">
 
     <Grid Background="#f6f6f6">
-        <Grid VerticalAlignment="Top" Margin="20,5,20,0">
-            <Label Content="Поиск"  HorizontalAlignment="Left" Margin="20,5,0,0" FontWeight="Bold"/>
+        <Label Content="Поиск"  HorizontalAlignment="Left" Margin="10,15,0,0" FontWeight="Bold" Height="42" VerticalAlignment="Top"/>
 
-            <Border CornerRadius="12" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="70,5,0,0" Width="210" Padding="5" Background="White">
-                <TextBox x:Name="SearchText" Text="По номеру заявки или параметрам" BorderThickness="0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
-            </Border>
-
-            <Border  CornerRadius="12" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="285,5,0,0" Background="White" Padding="5" MouseDown="Search">
-                <Image Source="/Images/search.png" Width="15" Height="15"/>
-            </Border>
-
-            <Border Background="White" HorizontalAlignment="Left" Margin="320,5,0,0" CornerRadius="12" Width="80" VerticalAlignment="Center" MouseDown="TransitionQRCode">
-                <Label Content="QRCode" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-            </Border>
-
-            <Border Background="White" HorizontalAlignment="Left" Margin="410,5,0,0" CornerRadius="12" Width="80" VerticalAlignment="Center" MouseDown="TransitionStatistic">
-                <Label Content="Статистика" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-            </Border>
-
-            <Border Background="White" HorizontalAlignment="Left" Margin="500,5,0,0" CornerRadius="12" Width="80" VerticalAlignment="Center" MouseDown="TransitionReport">
-                <Label Content="Отчет" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-            </Border>
-
-            <Border Background="White" HorizontalAlignment="Left" Margin="500,5,0,0" CornerRadius="12" Width="120" VerticalAlignment="Center" MouseDown="TransitionAddComment">
-                <Label Content="Комментарий" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-            </Border>
+        <TextBox x:Name="SearchText" Text="По номеру заявки" FontSize="15px" BorderThickness="0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Margin="69,15,0,0" HorizontalAlignment="Left" Width="175" Height="42" VerticalAlignment="Top"/>
 
 
-            <Border CornerRadius="12" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,110,0" Background="White" Width="80" MouseDown="AddRequest">
-                <Label Content="Добавить" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>
-            </Border>
-            <Border CornerRadius="12" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,20,0" Background="White" Width="80" MouseDown="Exit">
-                <Label Content="Выход" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>
-            </Border>
-        </Grid>
 
-        <Border Margin="10,60,10,10" Background="White" CornerRadius="20" BorderThickness="1" Padding="5" >
-            <ListBox x:Name="pagesListBox" BorderThickness="0" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
-        </Border>
+        <Button Content="QRCode" Click="TransitionQRCode" FontSize="15" HorizontalAlignment="Right" Width="101" Margin="0,0,367,16" Height="32" VerticalAlignment="Bottom">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Статистика" Click="TransitionStatistic" FontSize="15" HorizontalAlignment="Right" Width="100" Margin="0,0,144,16" Height="32" VerticalAlignment="Bottom">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Комментарий" Click="TransitionAddComment" FontSize="15" Margin="0,0,20,16" Height="32" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="101">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Content="Отчет" Click="TransitionReport" FontSize="15" HorizontalAlignment="Right" Width="80" Margin="0,0,266,16" Height="32" VerticalAlignment="Bottom">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Content="Добавить" Click="AddRequest" FontSize="15" HorizontalAlignment="Right" Width="80" Margin="0,19,126,0" Height="32" VerticalAlignment="Top">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Выход" Click="Exit" FontSize="15" HorizontalAlignment="Right" Width="80" Margin="0,19,20,0" Height="32" VerticalAlignment="Top">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Искать" Click="Search" FontSize="15" HorizontalAlignment="Left" Width="80" Margin="249,15,0,0" Height="32" VerticalAlignment="Top">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+
+        <ListBox x:Name="pagesListBox" BorderThickness="0" VerticalContentAlignment="Center" Margin="20,60,20,66"/>
+
     </Grid>
 </Page>

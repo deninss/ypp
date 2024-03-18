@@ -18,7 +18,7 @@ namespace WpfApp1.Pages
     /// <summary>
     /// Логика взаимодействия для RequestEdit.xaml
     /// </summary>
-    public partial class RequestEdit : Page
+    public partial class RequestEdit : Window
     {
         MainWindow mainWindow;
         public RequestEdit(MainWindow _mainWindow)
@@ -28,7 +28,21 @@ namespace WpfApp1.Pages
         }
         public void TransitionBack(object sender, RoutedEventArgs e)
         {
-            mainWindow.frame.Navigate(new Pages.Main(mainWindow));
+            this.Close();
+        }
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (textBox.Text == "Введите оборудование" || textBox.Text == "Введите описание проблемы") textBox.Text = "";
+        }
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                if (textBox == Equipment) textBox.Text = "Введите оборудование";
+                else if (textBox == Description) textBox.Text = "Введите описание проблемы";
+            }
         }
     }
 }

@@ -18,7 +18,7 @@ namespace WpfApp1.Pages
     /// <summary>
     /// Логика взаимодействия для QRCode.xaml
     /// </summary>
-    public partial class QRCode : Page
+    public partial class QRCode : Window
     {
         MainWindow mainWindow;
         public QRCode(MainWindow _mainWindow)
@@ -33,7 +33,7 @@ namespace WpfApp1.Pages
         }
         public void TransitionBack(object sender, RoutedEventArgs e)
         {
-            mainWindow.frame.Navigate(new Pages.Main(mainWindow));
+            this.Close();
         }
     }
 }

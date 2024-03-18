@@ -23,10 +23,13 @@
             <TextBox Text="Введите пароль" FontSize="14" x:Name="Password" Width="250" BorderThickness="0" Height="23" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
         </Border>
 
-        <Border CornerRadius="12" Padding="5" VerticalAlignment="Top" BorderThickness="1" BorderBrush="Black" Height="38" Width="150" HorizontalAlignment="Center" Margin="0,278,0,0" MouseDown="Registr">
-            <Label Content="Зарегистрироваться" BorderThickness="0" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" />
-        </Border>
-
+        <Button Content="Зарегистрироваться" Click="Registr" FontSize="16" FontWeight="Bold" Margin="310,289,310,0" Height="37" VerticalAlignment="Top">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
         <Label x:Name="Regin" Content="Вернуться обратно" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="12" Foreground="Black" Opacity="0.6" Margin="0,0,0,30" MouseDown="TransitionBack"/>
 
     </Grid>

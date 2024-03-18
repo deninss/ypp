@@ -18,7 +18,7 @@ namespace WpfApp1.Pages
     /// <summary>
     /// Логика взаимодействия для Statistic.xaml
     /// </summary>
-    public partial class Statistic : Page
+    public partial class Statistic : Window
     {
         MainWindow mainWindow;
         public Statistic(MainWindow _mainWindow)
@@ -28,7 +28,7 @@ namespace WpfApp1.Pages
         }
         public void TransitionBack(object sender, RoutedEventArgs e)
         {
-            mainWindow.frame.Navigate(new Pages.Main(mainWindow));
+            this.Close();
         }
     }
 }

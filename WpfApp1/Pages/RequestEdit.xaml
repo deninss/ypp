@@ -1,33 +1,34 @@
-﻿<Page x:Class="WpfApp1.Pages.RequestEdit"
+﻿<Window x:Class="WpfApp1.Pages.RequestEdit"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfApp1.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      MinHeight="290" MinWidth="400" MaxHeight="290" MaxWidth="400"
       Title="RequestEdit">
 
     <Grid Background="#f6f6f6">
-        <Label Content="Вернуться назад" Margin="20,10,0,0" FontSize="14" Opacity="0.6" FontWeight="Bold" MouseDown="TransitionBack"/>
+        <Label Content="Назад" Margin="20,10,307,192" FontSize="14" Opacity="0.6" FontWeight="Bold" MouseDown="TransitionBack"/>
         <Label x:Name="z" Content="Добавление заявки" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0"/>
-        <Border Margin="20,60,20,20" CornerRadius="20" BorderThickness="1" Background="White" Padding="5">
-            <Grid>
-                <Label Content="Оборудование: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
-                <Border VerticalAlignment="Top" Margin="140,10,10,0" Height="30" CornerRadius="12" BorderThickness="1" Background="#f6f6f6" Padding="3">
-                    <TextBox x:Name="Equipment" Text="Введите оборудование"  VerticalContentAlignment="Center" Background="#f6f6f6" BorderThickness="0"/>
-                </Border>
 
-                <Label Content="Тип неисправности: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,60,0,0"/>
-                <ComboBox Width="160" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="140,60,0,0"/>
-                <Label Content="Описание: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,110,0,0"/>
-                <Border CornerRadius="12" VerticalAlignment="Top" Margin="140,110,10,0" Height="30" BorderThickness="1" Background="#f6f6f6" Padding="3">
-                    <TextBox Text="Введите описание проблемы" VerticalContentAlignment="Center" BorderThickness="0" Background="#f6f6f6"/>
-                </Border>
-                <Border CornerRadius="12" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20,0,0,20" Background="#f6f6f6" Padding="5">
-                    <Label Content="Добавить" FontSize="16" FontWeight="Bold"/>
-                </Border>
-            </Grid>
-        </Border>
+        <Label Content="Оборудование: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,72,0,0"/>
+        <TextBox x:Name="Equipment" Text="Введите стоимость" VerticalAlignment="Top" Margin="123,68,12,0" Height="30" VerticalContentAlignment="Center" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+
+
+        <Label Content="Тип неисправности: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,109,0,0"/>
+        <ComboBox Height="30" VerticalAlignment="Top" Margin="148,107,15,0"/>
+        <Label Content="Описание: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,152,0,0"/>
+
+        <TextBox x:Name="Description" Text="Введите стоимость" VerticalAlignment="Top" Margin="98,150,15,0" Height="30" VerticalContentAlignment="Center" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+
+        <Button Content="Добавить" FontSize="16" FontWeight="Bold" Margin="15,197,15,0" Height="37" VerticalAlignment="Top">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
     </Grid>
-</Page>
+</Window>
