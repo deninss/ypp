@@ -33,6 +33,7 @@ namespace WpfApp1.Pages
                 try
                 {
                     Classes.DataBase.Select($"insert into [Users] (Login,Password, FIO, Role ) values ('{Login.Text}','{Password.Text}','{FIO.Text}', '{"Клиент"}')");
+                    MessageBox.Show("Вы успешно зарегистрированы");
                     mainWindow.frame.Navigate(new Pages.Authorization(mainWindow));
                 }
                 catch (Exception ex)

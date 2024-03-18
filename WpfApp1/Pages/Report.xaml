@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfApp1.Pages"
       mc:Ignorable="d" 
-      MinHeight="200" MinWidth="500" MaxHeight="200" MaxWidth="500"
+      MinHeight="250" MinWidth="500" MaxHeight="250" MaxWidth="500"
       Title="Report">
 
     <Grid Background="#f6f6f6">
@@ -17,7 +17,7 @@
         <Label Content="Стоимость: " HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="10,84,0,0" FontWeight="Bold" FontSize="16" Height="30"/>
         <TextBox x:Name="Price" Text="Введите стоимость" VerticalAlignment="Top" Margin="120,84,10,0" Height="30" VerticalContentAlignment="Center" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
 
-        <Button Content="Создать отчет" FontSize="16" FontWeight="Bold" Margin="15,131,15,21">
+        <Button Content="Создать отчет" Click="CreateReport" FontSize="16" FontWeight="Bold" Margin="15,131,15,21">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>

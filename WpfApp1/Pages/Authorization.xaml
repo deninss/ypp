@@ -9,23 +9,16 @@
       Title="Authorization">
 
     <Grid Background="#f6f6f6">
-        <Label Content="Авторизация" Margin="0,78,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="16"/>
-
-        <Border  CornerRadius="12" Padding="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,80" BorderThickness="1" BorderBrush="Black">
-            <TextBox Text="Введите логин" FontSize="14" x:Name="Login" Width="250" BorderThickness="0" Height="23" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
-        </Border>
-
-        <Border  CornerRadius="12" Padding="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,30,0,0" BorderThickness="1" BorderBrush="Black">
-            <TextBox Text="Введите пароль" FontSize="14" x:Name="Password" Width="250" BorderThickness="0" Height="23" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
-        </Border>
-
-        <Button Content="Войти" Click="ToComeIn" FontSize="16" FontWeight="Bold" Margin="310,289,310,0" Height="37" VerticalAlignment="Top">
+        <Label Content="Авторизация" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" FontSize="16" Height="37" Width="122"/>
+        <TextBox Text="Введите логин" FontSize="14" x:Name="Login" Width="250" Height="23" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Margin="0,136,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBox Text="Введите пароль" FontSize="14" x:Name="Password" Width="250" Height="23" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Margin="0,176,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Button Content="Войти" Click="ToComeIn" FontSize="16" FontWeight="Bold" Margin="310,225,310,0" Height="37" VerticalAlignment="Top">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Label x:Name="Registration" Content="Зарегистрироваться" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="12" Foreground="Black" Opacity="0.6" Margin="0,0,0,30" MouseDown="TransitionRegistration"/>
+        <Label x:Name="Registration" Content="Зарегистрироваться"  VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="12" Foreground="Black"  Margin="0,278,0,0" MouseDown="TransitionRegistration"/>
     </Grid>
 </Page>

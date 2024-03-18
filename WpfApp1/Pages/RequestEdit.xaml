@@ -22,7 +22,14 @@
 
             <TextBox x:Name="Description" VerticalAlignment="Top" Margin="98,150,15,0" Height="30" VerticalContentAlignment="Center" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
 
-            <Button Content="Добавить" FontSize="16" FontWeight="Bold" Margin="15,197,15,0" Height="37" VerticalAlignment="Top">
+            <Button Content="Добавить" Visibility="Hidden" x:Name="Add" Click="AddRequestClient" FontSize="16" FontWeight="Bold" Margin="15,197,15,0" Height="37" VerticalAlignment="Top">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Content="Изменить" Visibility="Hidden" x:Name="chenge" Click="UpDateRequestClient" FontSize="16" FontWeight="Bold" Margin="15,197,15,0" Height="37" VerticalAlignment="Top">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
@@ -38,7 +45,7 @@
             <TextBox x:Name="EndDate" VerticalAlignment="Top" Margin="140,73,60,0" Height="30" VerticalContentAlignment="Center" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
 
 
-            <Button Content="Изменить" Click="UpDateRequestManager" FontSize="16" FontWeight="Bold" Margin="15,197,15,0" Height="37" VerticalAlignment="Top">
+            <Button Content="Изменить"  x:Name="UpDate" Click="UpDateRequestManager" FontSize="16" FontWeight="Bold" Margin="15,197,15,0" Height="37" VerticalAlignment="Top">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>

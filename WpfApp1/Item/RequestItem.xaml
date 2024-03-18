@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp1.Item"
              mc:Ignorable="d" >
-    <Border CornerRadius="20" BorderThickness="1" Background="#f6f6f6" Padding="10" Margin="5">
-        <Grid>
+
+    <Grid Background="#f6f6f6">
             <TextBlock x:Name="Number" Width="200" Height="25" Margin="5,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <TextBlock x:Name="StartDate" Width="200" Height="25" Margin="5,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <TextBlock x:Name="EndDate" Width="200" Height="25" Margin="5,55,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -56,5 +56,5 @@
                 </Button.Resources>
             </Button>
         </Grid>
-    </Border>
+  
 </UserControl>

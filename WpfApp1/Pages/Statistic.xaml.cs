@@ -28,13 +28,13 @@ namespace WpfApp1.Pages
             mainWindow = _mainWindow;
             try
             {
-                DataTable query = Classes.DataBase.Select($"SELECT COUNT(*) FROM Requests where Status = '{2}';");
+                DataTable query = Classes.DataBase.Select($"SELECT COUNT(*) FROM Requests where Status = '{3}';");
                 CountRequest.Content = "Количество выполненных заявок: " + query.Rows[0][0].ToString();
                 int complete = 0;
                 TimeSpan totalTime = new TimeSpan();
                 foreach (var row in mainWindow.RequestItem)
                 {
-                    if (row.Status == "2")
+                    if (row.Status == "выполнено")
                     {
                         complete++;
                         totalTime += DateTime.Parse(row.EndDate) - DateTime.Parse(row.StartDate);

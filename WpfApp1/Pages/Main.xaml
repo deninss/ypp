@@ -9,27 +9,24 @@
       Title="Main">
 
     <Grid Background="#f6f6f6">
-        <Label Content="Поиск"  HorizontalAlignment="Left" Margin="10,15,0,0" FontWeight="Bold" Height="42" VerticalAlignment="Top"/>
 
-        <TextBox x:Name="SearchText" Text="По номеру заявки" FontSize="15px" BorderThickness="0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Margin="69,15,0,0" HorizontalAlignment="Left" Width="175" Height="42" VerticalAlignment="Top"/>
+        <TextBox x:Name="SearchText" Text="По номеру заявки" FontSize="15px" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Margin="0,12,166,0" HorizontalAlignment="Right" Width="175" Height="28" VerticalAlignment="Top"/>
 
-
-
-        <Button  x:Name="QRCodeClient" Content="QRCode" Click="TransitionQRCode" FontSize="15" HorizontalAlignment="Right" Width="101" Margin="0,0,367,16" Height="32" VerticalAlignment="Bottom">
+        <Button  x:Name="QRCodeClient"  Visibility="Hidden"  Content="QRCode" Click="TransitionQRCode" FontSize="15" HorizontalAlignment="Right" Width="130" Margin="0,170,20,0" Height="32" VerticalAlignment="Top">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button  x:Name="StatisticManager" Visibility="Hidden" Content="Статистика" Click="TransitionStatistic" FontSize="15" HorizontalAlignment="Right" Width="100" Margin="0,0,144,16" Height="32" VerticalAlignment="Bottom">
+        <Button  x:Name="StatisticManager"  Visibility="Hidden"  Content="Статистика" Click="TransitionStatistic" FontSize="15" HorizontalAlignment="Right" Width="130" Margin="0,222,20,0" Height="32" VerticalAlignment="Top">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="Комментарий" Click="TransitionAddComment" FontSize="15" Margin="0,0,20,16" Height="32" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="101">
+        <Button Content="Комментарий"  Visibility="Hidden"  Click="TransitionAddComment" FontSize="15" Margin="0,279,20,0" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" Width="130">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -37,22 +34,22 @@
             </Button.Resources>
         </Button>
 
- 
-        <Button Content="Добавить" Click="AddRequest"  x:Name="AddRequstClient" Visibility="Hidden" FontSize="15" HorizontalAlignment="Right" Width="80" Margin="0,19,126,0" Height="32" VerticalAlignment="Top">
+
+        <Button Content="Добавить" Visibility="Hidden" Click="AddRequest"  x:Name="AddRequstClient" FontSize="15" HorizontalAlignment="Right" Width="130" Margin="0,116,20,0" Height="32" VerticalAlignment="Top">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="Выход" Click="Exit" FontSize="15" HorizontalAlignment="Right" Width="80" Margin="0,19,20,0" Height="32" VerticalAlignment="Top">
+        <Button Content="Выход" Click="Exit" FontSize="15" HorizontalAlignment="Right" Width="130" Margin="0,60,20,0" Height="32" VerticalAlignment="Top">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="Искать" Click="Search" FontSize="15" HorizontalAlignment="Left" Width="80" Margin="249,15,0,0" Height="32" VerticalAlignment="Top">
+        <Button Content="Искать" Click="Search" FontSize="15" HorizontalAlignment="Right" Width="130" Margin="0,10,20,0" Height="32" VerticalAlignment="Top">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -61,7 +58,7 @@
         </Button>
 
 
-        <ListBox x:Name="pagesListBox" BorderThickness="0" VerticalContentAlignment="Center" Margin="20,60,20,66"/>
+        <ListBox x:Name="pagesListBox" BorderThickness="0" VerticalContentAlignment="Center" Background="#f6f6f6" Margin="20,60,166,10"/>
 
     </Grid>
 </Page>

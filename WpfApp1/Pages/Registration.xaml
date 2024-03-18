@@ -9,19 +9,12 @@
       Title="Registration">
 
     <Grid Background="#f6f6f6">
-        <Label Content="Регистрация" Margin="0,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Регистрация" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" FontSize="16"/>
 
-        <Border  CornerRadius="12" Padding="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,150" BorderThickness="1" BorderBrush="Black">
-            <TextBox Text="Введите ФИО" FontSize="14" x:Name="FIO" Width="250" BorderThickness="0" Height="23" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
-        </Border>
+        <TextBox Text="Введите ФИО" FontSize="14" x:Name="FIO" Width="250" Height="23" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Margin="0,182,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBox Text="Введите логин" FontSize="14" x:Name="Login" Width="250" Height="23" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Margin="0,214,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBox Text="Введите пароль" FontSize="14" x:Name="Password" Width="250" Height="23" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Margin="0,242,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
-        <Border  CornerRadius="12" Padding="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,60" BorderThickness="1" BorderBrush="Black">
-            <TextBox Text="Введите логин" FontSize="14" x:Name="Login" Width="250" BorderThickness="0" Height="23" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
-        </Border>
-
-        <Border  CornerRadius="12" Padding="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,30,0,0" BorderThickness="1" BorderBrush="Black">
-            <TextBox Text="Введите пароль" FontSize="14" x:Name="Password" Width="250" BorderThickness="0" Height="23" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
-        </Border>
 
         <Button Content="Зарегистрироваться" Click="Registr" FontSize="16" FontWeight="Bold" Margin="310,289,310,0" Height="37" VerticalAlignment="Top">
             <Button.Resources>
@@ -30,7 +23,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Label x:Name="Regin" Content="Вернуться обратно" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="12" Foreground="Black" Opacity="0.6" Margin="0,0,0,30" MouseDown="TransitionBack"/>
+        <Label x:Name="Regin" Content="Авторизоваться" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="12" Foreground="Black" Margin="0,331,0,0" MouseDown="TransitionBack"/>
 
     </Grid>
 </Page>

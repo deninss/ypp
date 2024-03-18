@@ -24,13 +24,16 @@ namespace WpfApp1.Pages
     {
         Classes.Request request;
         MainWindow mainWindow;
-        public RequestEdit(MainWindow _mainWindow)
+        Main main;
+        public RequestEdit(MainWindow _mainWindow,Main main)
         {
             InitializeComponent();
             mainWindow = _mainWindow;
+            this.main = main;
             if (User.Role == "Клиент")
             {
                 RequestClientEdit.Visibility = Visibility.Visible;
+                Add.Visibility = Visibility.Visible;
                 LoadTypeOfFaul();
             }
             else if (User.Role == "Менеджер")
@@ -44,25 +47,23 @@ namespace WpfApp1.Pages
                 LoadStatus();
             }
         }
-        public RequestEdit(MainWindow _mainWindow, Classes.Request _request)
+        public RequestEdit(MainWindow _mainWindow, Classes.Request _request,Main _main)
         {
             InitializeComponent();
             mainWindow = _mainWindow;
             request = _request;
+            main = _main;
             name.Content = "Изменение заявки";
             if (User.Role == "Клиент")
             {
+                chenge.Visibility = Visibility.Visible;
+                Add.Visibility = Visibility.Hidden;
                 RequestClientEdit.Visibility = Visibility.Visible;
+                UpDate.Visibility = Visibility.Visible;
                 LoadTypeOfFaul();
                 try
                 {
-                    string TypesOfFaults = "";
-                    int ID = Convert.ToInt32(request.TypeOfFault);
-                    DataTable item = Classes.DataBase.Select($"select Name from [TypeOfFault] where Id = '{ID}'");
-                    foreach (DataRow row in item.Rows)
-                    {
-                        TypesOfFaults = row[0].ToString();
-                    }
+                    string TypesOfFaults = request.TypeOfFault;
                     Materials.Text = request.Equipment;
                     comboBoxTypesOfFaults.SelectedItem = TypesOfFaults;
                     Description.Text = request.Description;
@@ -78,17 +79,7 @@ namespace WpfApp1.Pages
                 LoadPerformer();
                 try
                 {
-                    string Performer = "";
-                    if (request.Performer != "")
-                    {
-                        int ID = Convert.ToInt32(request.Performer);
-                        DataTable item = Classes.DataBase.Select($"select FIO from [Users] where Id = '{ID}'");
-                        foreach (DataRow row in item.Rows)
-                        {
-                            Performer = row[0].ToString();
-                        }
-                    }
-                    else Performer = "";
+                    string Performer = request.Performer;
                     comboBoxPerformer.SelectedItem = Performer;
                     EndDate.Text = request.EndDate;
                 }
@@ -103,13 +94,7 @@ namespace WpfApp1.Pages
                 LoadStatus();
                 try
                 {
-                    string Status = "";
-                    int ID = Convert.ToInt32(request.Status);
-                    DataTable item = Classes.DataBase.Select($"select Name from [Status] where Id = '{ID}'");
-                    foreach (DataRow row in item.Rows)
-                    {
-                        Status = row[0].ToString();
-                    }
+                    string Status = request.Status;
                     comboBoxStatus.SelectedItem = Status;
                     CommentPerformer.Text = request.PerformerComment;
                 }
@@ -202,6 +187,7 @@ namespace WpfApp1.Pages
                     DataTable result = Classes.DataBase.Select($"insert into [Requests] (Number,StartDate,Equipment,TypeOfFault,Description,Client,Status) values ('{Number}','{formattedDate}','{Materials.Text}','{ID}','{Description.Text}','{User.Id}','{1}')");
                     mainWindow.LoadItem();
                     MessageBox.Show("Заявка успешно добавлена");
+                    main.Load();
                     this.Close();
                 }
                 catch (Exception ex)
@@ -212,6 +198,34 @@ namespace WpfApp1.Pages
             else MessageBox.Show("Заполните все поля");
 
         }
+        public void UpDateRequestClient(object sender, RoutedEventArgs e)
+        {
+            if (Materials.Text.Length != 0 && comboBoxTypesOfFaults.SelectedIndex != -1 && Description.Text.Length != 0)
+            {
+                try
+                {
+                    int ID = 0;
+                    string TypeOfFaults;
+                    TypeOfFaults = comboBoxTypesOfFaults.SelectedItem.ToString();
+                    DataTable item = Classes.DataBase.Select($"select Id from [TypeOfFault] where Name = '{TypeOfFaults}'");
+                    foreach (DataRow row in item.Rows)
+                    {
+                        ID = Convert.ToInt32(row[0]);
+                    }
+                    DataTable result = Classes.DataBase.Select($"UPDATE [Requests] SET Equipment = '{Materials.Text}',[TypeOfFault] = '{ID}', Description = '{Description.Text}' where Id = '{request.Id}'");
+                    MessageBox.Show("Заявка успешно обновлена");
+                    mainWindow.LoadItem();
+                    main.Load();
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else MessageBox.Show("Заполните все поля");
+        }
+
         public void UpDateRequestManager(object sender, RoutedEventArgs e)
         {
             try
@@ -227,6 +241,7 @@ namespace WpfApp1.Pages
                 DataTable result = Classes.DataBase.Select($"UPDATE [Requests] SET Performer = '{ID}',[EndDate] = '{EndDate.Text}' where Id = '{request.Id}'");
                 MessageBox.Show("Заявка успешно обновлена");
                 mainWindow.LoadItem();
+                main.Load();
                 this.Close();
             }
             catch (Exception ex)
@@ -249,6 +264,7 @@ namespace WpfApp1.Pages
                 DataTable result = Classes.DataBase.Select($"UPDATE [Requests] SET Status = '{ID}',[PerformerComment] = '{CommentPerformer.Text}' where Id = '{request.Id}'");
                 MessageBox.Show("Заявка успешно обновлена");
                 mainWindow.LoadItem();
+                main.Load();
                 this.Close();
             }
             catch (Exception ex)
@@ -261,5 +277,4 @@ namespace WpfApp1.Pages
             this.Close();
         }
     }
-
 }

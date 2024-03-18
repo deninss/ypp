@@ -44,22 +44,29 @@ namespace WpfApp1.Pages
         public void Load()
         {
             pagesListBox.Items.Clear();
-            foreach (var page in mainWindow.RequestItem)
+            foreach (var request in mainWindow.RequestItem)
             {
-                RequestItem pageControl = new RequestItem(mainWindow,page);
-                pageControl.DataContext = page;
-                pagesListBox.Items.Add(pageControl);
+                RequestItem requestControl = new RequestItem(mainWindow, request,this);
+                requestControl.DataContext = request;
+                pagesListBox.Items.Add(requestControl);
+                if (User.Role == "Клиент")
+                {
+                    DateTime StartDatee = DateTime.Today;
+                    string formattedDate = StartDatee.ToShortDateString();
+                    if (request.Status == "Готово") MessageBox.Show(request.Number + " Заявка готова");
+                    else if (request.EndDate == formattedDate) MessageBox.Show(request.Number + " Заявка готова");
+                }
             }
         }
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            if (textBox.Text == "По номеру заявки или параметрам") textBox.Text = "";
+            if (textBox.Text == "По номеру заявки") textBox.Text = "";
         }
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            if (string.IsNullOrWhiteSpace(textBox.Text)) if (textBox == SearchText) textBox.Text = "По номеру заявки или параметрам";
+            if (string.IsNullOrWhiteSpace(textBox.Text)) if (textBox == SearchText) textBox.Text = "По номеру заявки";
         }
 
 
@@ -67,7 +74,7 @@ namespace WpfApp1.Pages
         {
             mainWindow.LoadItem();
             Load();
-            if (SearchText.Text.Length > 0 && SearchText.Text != "По номеру заявки или параметрам")
+            if (SearchText.Text.Length > 0 && SearchText.Text != "По номеру заявки")
             {
                 try
                 {
@@ -75,7 +82,7 @@ namespace WpfApp1.Pages
                     pagesListBox.Items.Clear();
                     foreach (var item in mainWindow.RequestItem)
                     {
-                        RequestItem pageControl = new RequestItem(mainWindow, item);
+                        RequestItem pageControl = new RequestItem(mainWindow, item,this);
                         pageControl.DataContext = item;
                         pagesListBox.Items.Add(pageControl);
                     }
@@ -89,8 +96,7 @@ namespace WpfApp1.Pages
         }
         public void TransitionAddComment(object sender, RoutedEventArgs e)
         {
-            Pages.RequestEdit addComment = new RequestEdit(mainWindow);
-            addComment.ShowDialog();
+         
         }
 
 
@@ -116,7 +122,7 @@ namespace WpfApp1.Pages
 
         public void AddRequest(object sender, RoutedEventArgs e)
         {
-            RequestEdit requestEdit = new RequestEdit(mainWindow);
+            RequestEdit requestEdit = new RequestEdit(mainWindow,this);
             requestEdit.ShowDialog();
         }
     }

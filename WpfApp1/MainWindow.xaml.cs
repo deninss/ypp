@@ -40,7 +40,7 @@ namespace WpfApp1
                     try
                     {
                         RequestItem.Clear();
-                        DataTable itemuser = Classes.DataBase.Select($"select * from [Requests] where Client = '{User.Id}'");
+                        DataTable itemuser = Classes.DataBase.Select($"SELECT Requests.Id, Requests.Number, Requests.StartDate, Requests.EndDate, Requests.Equipment, TypeOfFault.Name AS TypeOfFault, Requests.Description, Users.FIO AS Client, Users2.FIO AS Performer, Status.Name AS Status, Requests.PerformerComment FROM Requests JOIN TypeOfFault ON Requests.TypeOfFault = TypeOfFault.Id JOIN Users ON Requests.Client = Users.Id JOIN Users Users2 ON Requests.Performer = Users2.Id JOIN Status ON Requests.Status = Status.Id WHERE Requests.Client = '{User.Id}';");
                         foreach (DataRow row in itemuser.Rows)
                         {
                             Classes.Request request = new Classes.Request
@@ -70,7 +70,8 @@ namespace WpfApp1
                     try
                     {
                         RequestItem.Clear();
-                        DataTable item = Classes.DataBase.Select($"select * from [Requests]");
+                        DataTable item = Classes.DataBase.Select($"SELECT Requests.Id, Requests.Number, Requests.StartDate, Requests.EndDate, Requests.Equipment, TypeOfFault.Name AS TypeOfFault, Requests.Description, Users.FIO AS Client, Users2.FIO AS Performer, Status.Name AS Status, Requests.PerformerComment FROM Requests JOIN TypeOfFault ON Requests.TypeOfFault = TypeOfFault.Id JOIN Users ON Requests.Client = Users.Id LEFT JOIN Users Users2 ON Requests.Performer = Users2.Id JOIN Status ON Requests.Status = Status.Id;");
+                        
 
                         foreach (DataRow row in item.Rows)
                         {
@@ -102,7 +103,7 @@ namespace WpfApp1
                     try
                     {
                         RequestItem.Clear();
-                        DataTable item = Classes.DataBase.Select($"select * from [Requests] where Performer = '{User.Id}'");
+                        DataTable item = Classes.DataBase.Select($"SELECT Requests.Id, Requests.Number, Requests.StartDate, Requests.EndDate, Requests.Equipment, TypeOfFault.Name AS TypeOfFault, Requests.Description, Users.FIO AS Client, Users2.FIO AS Performer, Status.Name AS Status, Requests.PerformerComment FROM Requests JOIN TypeOfFault ON Requests.TypeOfFault = TypeOfFault.Id JOIN Users ON Requests.Client = Users.Id JOIN Users Users2 ON Requests.Performer = Users2.Id JOIN Status ON Requests.Status = Status.Id where Performer = '{User.Id}'");
 
                         foreach (DataRow row in item.Rows)
                         {
