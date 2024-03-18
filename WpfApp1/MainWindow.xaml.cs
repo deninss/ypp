@@ -35,26 +35,98 @@ namespace WpfApp1
         {
             try
             {
-                RequestItem.Clear();
-                DataTable item = Classes.DataBase.Select($"select * from [Requests]");
-
-                foreach (DataRow row in item.Rows)
+                if (User.Role == "Клиент")
                 {
-                    Classes.Request request = new Classes.Request
+                    try
                     {
-                        Id = Convert.ToInt32(row["Id"]),
-                        Number = row["Number"].ToString(),
-                        StartDate = row["StartDate"].ToString(),
-                        EndDate = row["EndDate"].ToString(),
-                        Equipment = row["Equipment"].ToString(),
-                        TypeOfFault = row["TypeOfFault"].ToString(),
-                        Description = row["Description"].ToString(),
-                        Client = row["Client"].ToString(),
-                        Performer = row["Performer"].ToString(),
-                        Status = row["Status"].ToString(),
-                        PerformerComment = row["PerformerComment"].ToString()
-                    };
-                    RequestItem.Add(request);
+                        RequestItem.Clear();
+                        DataTable itemuser = Classes.DataBase.Select($"select * from [Requests] where Client = '{User.Id}'");
+                        foreach (DataRow row in itemuser.Rows)
+                        {
+                            Classes.Request request = new Classes.Request
+                            {
+                                Id = Convert.ToInt32(row["Id"]),
+                                Number = row["Number"].ToString(),
+                                StartDate = row["StartDate"].ToString(),
+                                EndDate = row["EndDate"].ToString(),
+                                Equipment = row["Equipment"].ToString(),
+                                TypeOfFault = row["TypeOfFault"].ToString(),
+                                Description = row["Description"].ToString(),
+                                Client = row["Client"].ToString(),
+                                Performer = row["Performer"].ToString(),
+                                Status = row["Status"].ToString(),
+                                PerformerComment = row["PerformerComment"].ToString()
+                            };
+                            RequestItem.Add(request);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                else if (User.Role == "Менеджер")
+                {
+                    try
+                    {
+                        RequestItem.Clear();
+                        DataTable item = Classes.DataBase.Select($"select * from [Requests]");
+
+                        foreach (DataRow row in item.Rows)
+                        {
+                            Classes.Request request = new Classes.Request
+                            {
+                                Id = Convert.ToInt32(row["Id"]),
+                                Number = row["Number"].ToString(),
+                                StartDate = row["StartDate"].ToString(),
+                                EndDate = row["EndDate"].ToString(),
+                                Equipment = row["Equipment"].ToString(),
+                                TypeOfFault = row["TypeOfFault"].ToString(),
+                                Description = row["Description"].ToString(),
+                                Client = row["Client"].ToString(),
+                                Performer = row["Performer"].ToString(),
+                                Status = row["Status"].ToString(),
+                                PerformerComment = row["PerformerComment"].ToString()
+                            };
+                            RequestItem.Add(request);
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                else if (User.Role == "Сотрудник")
+                {
+                    try
+                    {
+                        RequestItem.Clear();
+                        DataTable item = Classes.DataBase.Select($"select * from [Requests] where Performer = '{User.Id}'");
+
+                        foreach (DataRow row in item.Rows)
+                        {
+                            Classes.Request request = new Classes.Request
+                            {
+                                Id = Convert.ToInt32(row["Id"]),
+                                Number = row["Number"].ToString(),
+                                StartDate = row["StartDate"].ToString(),
+                                EndDate = row["EndDate"].ToString(),
+                                Equipment = row["Equipment"].ToString(),
+                                TypeOfFault = row["TypeOfFault"].ToString(),
+                                Description = row["Description"].ToString(),
+                                Client = row["Client"].ToString(),
+                                Performer = row["Performer"].ToString(),
+                                Status = row["Status"].ToString(),
+                                PerformerComment = row["PerformerComment"].ToString()
+                            };
+                            RequestItem.Add(request);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
             catch (Exception ex)

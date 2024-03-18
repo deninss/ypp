@@ -29,7 +29,14 @@ namespace WpfApp1.Pages
         }
         private void LoadQRCOde()
         {
-            ImageQRCode.Source = Classes.QRCode.CreateBitmapCode(":)))))))))))))))))))))))))))))))))))))))))))))))))))");
+            try
+            {
+                ImageQRCode.Source = Classes.QRCode.CreateBitmapCode(":)))))))))))))))))))))))))))))))))))))))))))))))))))");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         public void TransitionBack(object sender, RoutedEventArgs e)
         {
