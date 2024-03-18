@@ -10,7 +10,7 @@ namespace WpfApp1.Classes
     {
         public int Id { get; set; }
         public string Number { get; set; }
-        public User Performer { get; set; }
+        public string Performer { get; set; }
         public string Date { get; set; }
         public string Comment { get; set; }
     }

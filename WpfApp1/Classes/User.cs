@@ -8,12 +8,10 @@ namespace WpfApp1.Classes
 {
     public class User
     {
-        public int Id { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public string Role { get; set; }
-        public string FirstName { get; set; }
-        public string SecondName { get; set; }
-        public string MiddleName { get; set; }
+        public static int Id { get; set; }
+        public static string Login { get; set; }
+        public static string Password { get; set; }
+        public static string FIO { get; set; }
+        public static string Role { get; set; }
     }
 }

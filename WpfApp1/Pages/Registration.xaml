@@ -8,7 +8,26 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Registration">
 
-    <Grid>
-        
+    <Grid Background="#f6f6f6">
+        <Label Content="Регистрация" Margin="0,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+
+        <Border  CornerRadius="12" Padding="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,150" BorderThickness="1" BorderBrush="Black">
+            <TextBox Text="Введите ФИО" FontSize="14" x:Name="FIO" Width="250" BorderThickness="0" Height="23" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+        </Border>
+
+        <Border  CornerRadius="12" Padding="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,60" BorderThickness="1" BorderBrush="Black">
+            <TextBox Text="Введите логин" FontSize="14" x:Name="Login" Width="250" BorderThickness="0" Height="23" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+        </Border>
+
+        <Border  CornerRadius="12" Padding="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,30,0,0" BorderThickness="1" BorderBrush="Black">
+            <TextBox Text="Введите пароль" FontSize="14" x:Name="Password" Width="250" BorderThickness="0" Height="23" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+        </Border>
+
+        <Border CornerRadius="12" Padding="5" VerticalAlignment="Top" BorderThickness="1" BorderBrush="Black" Height="38" Width="150" HorizontalAlignment="Center" Margin="0,278,0,0" MouseDown="Registr">
+            <Label Content="Зарегистрироваться" BorderThickness="0" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" />
+        </Border>
+
+        <Label x:Name="Regin" Content="Вернуться обратно" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="12" Foreground="Black" Opacity="0.6" Margin="0,0,0,30" MouseDown="TransitionBack"/>
+
     </Grid>
 </Page>

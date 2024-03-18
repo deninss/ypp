@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Item;
 
 namespace WpfApp1.Pages
 {
@@ -20,9 +21,69 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class Main : Page
     {
-        public Main()
+        MainWindow mainWindow;
+        public Main(MainWindow _mainWindow)
         {
             InitializeComponent();
+            mainWindow.LoadItem();
+            Load();
+        }
+        public void Load()
+        {
+            pagesListBox.Items.Clear();
+            foreach (var page in mainWindow.RequestItem)
+            {
+                RequestItem pageControl = new RequestItem();
+                pageControl.DataContext = page;
+                pagesListBox.Items.Add(pageControl);
+            }
+        }
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (textBox.Text == "По номеру заявки или параметрам") textBox.Text = "";
+        }
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (string.IsNullOrWhiteSpace(textBox.Text)) if (textBox == SearchText) textBox.Text = "По номеру заявки или параметрам";
+        }
+
+
+        public void Search(object sender, RoutedEventArgs e)
+        {
+
+        }
+        public void TransitionAddComment(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.AddComment(mainWindow));
+        }
+
+        public void TransitionReport(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.Report(mainWindow));
+        }
+
+        public void TransitionQRCode(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.QRCode(mainWindow));
+        }
+
+        public void TransitionStatistic(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.Statistic(mainWindow));
+        }
+
+
+        public void Exit(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.Authorization(mainWindow));
+        }
+
+
+        public void AddRequest(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.RequestEdit(mainWindow));
         }
     }
 }

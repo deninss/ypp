@@ -8,7 +8,45 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Main">
 
-    <Grid>
-        
+    <Grid Background="#f6f6f6">
+        <Grid VerticalAlignment="Top" Margin="20,5,20,0">
+            <Label Content="Поиск"  HorizontalAlignment="Left" Margin="20,5,0,0" FontWeight="Bold"/>
+
+            <Border CornerRadius="12" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="70,5,0,0" Width="210" Padding="5" Background="White">
+                <TextBox x:Name="SearchText" Text="По номеру заявки или параметрам" BorderThickness="0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+            </Border>
+
+            <Border  CornerRadius="12" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="285,5,0,0" Background="White" Padding="5" MouseDown="Search">
+                <Image Source="/Images/search.png" Width="15" Height="15"/>
+            </Border>
+
+            <Border Background="White" HorizontalAlignment="Left" Margin="320,5,0,0" CornerRadius="12" Width="80" VerticalAlignment="Center" MouseDown="TransitionQRCode">
+                <Label Content="QRCode" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+            </Border>
+
+            <Border Background="White" HorizontalAlignment="Left" Margin="410,5,0,0" CornerRadius="12" Width="80" VerticalAlignment="Center" MouseDown="TransitionStatistic">
+                <Label Content="Статистика" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+            </Border>
+
+            <Border Background="White" HorizontalAlignment="Left" Margin="500,5,0,0" CornerRadius="12" Width="80" VerticalAlignment="Center" MouseDown="TransitionReport">
+                <Label Content="Отчет" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+            </Border>
+
+            <Border Background="White" HorizontalAlignment="Left" Margin="500,5,0,0" CornerRadius="12" Width="120" VerticalAlignment="Center" MouseDown="TransitionAddComment">
+                <Label Content="Комментарий" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+            </Border>
+
+
+            <Border CornerRadius="12" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,110,0" Background="White" Width="80" MouseDown="AddRequest">
+                <Label Content="Добавить" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+            </Border>
+            <Border CornerRadius="12" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,20,0" Background="White" Width="80" MouseDown="Exit">
+                <Label Content="Выход" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+            </Border>
+        </Grid>
+
+        <Border Margin="10,60,10,10" Background="White" CornerRadius="20" BorderThickness="1" Padding="5" >
+            <ListBox x:Name="pagesListBox" BorderThickness="0" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
     </Grid>
 </Page>

@@ -8,7 +8,18 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddComment">
 
-    <Grid>
-        
+    <Grid Background="#f6f6f6">
+        <Label Content="Вернуться назад" Margin="20,10,0,0" FontSize="14" Opacity="0.6" FontWeight="Bold" MouseDown="TransitionBack"/>
+        <Label Content="Комментарий" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0"/>
+        <Border Margin="20,60,20,20" CornerRadius="20" Background="White">
+            <Grid>
+                <Label x:Name="z" Content="Комментарий: " HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="10,40,0,0" FontWeight="Bold" FontSize="16" Height="30"/>
+                <TextBox Text="Введите комментарий" VerticalAlignment="Top" Margin="140,40,10,0" Height="30" VerticalContentAlignment="Center"/>
+
+                <Border CornerRadius="12" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20,0,0,20" Background="#f6f6f6" Padding="5">
+                    <Label Content="Создать отчет" FontSize="16" FontWeight="Bold"/>
+                </Border>
+            </Grid>
+        </Border>
     </Grid>
 </Page>

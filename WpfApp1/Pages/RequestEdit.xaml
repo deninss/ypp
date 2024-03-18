@@ -8,7 +8,26 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="RequestEdit">
 
-    <Grid>
-        
+    <Grid Background="#f6f6f6">
+        <Label Content="Вернуться назад" Margin="20,10,0,0" FontSize="14" Opacity="0.6" FontWeight="Bold" MouseDown="TransitionBack"/>
+        <Label x:Name="z" Content="Добавление заявки" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0"/>
+        <Border Margin="20,60,20,20" CornerRadius="20" BorderThickness="1" Background="White" Padding="5">
+            <Grid>
+                <Label Content="Оборудование: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+                <Border VerticalAlignment="Top" Margin="140,10,10,0" Height="30" CornerRadius="12" BorderThickness="1" Background="#f6f6f6" Padding="3">
+                    <TextBox x:Name="Equipment" Text="Введите оборудование"  VerticalContentAlignment="Center" Background="#f6f6f6" BorderThickness="0"/>
+                </Border>
+
+                <Label Content="Тип неисправности: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,60,0,0"/>
+                <ComboBox Width="160" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="140,60,0,0"/>
+                <Label Content="Описание: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,110,0,0"/>
+                <Border CornerRadius="12" VerticalAlignment="Top" Margin="140,110,10,0" Height="30" BorderThickness="1" Background="#f6f6f6" Padding="3">
+                    <TextBox Text="Введите описание проблемы" VerticalContentAlignment="Center" BorderThickness="0" Background="#f6f6f6"/>
+                </Border>
+                <Border CornerRadius="12" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20,0,0,20" Background="#f6f6f6" Padding="5">
+                    <Label Content="Добавить" FontSize="16" FontWeight="Bold"/>
+                </Border>
+            </Grid>
+        </Border>
     </Grid>
 </Page>

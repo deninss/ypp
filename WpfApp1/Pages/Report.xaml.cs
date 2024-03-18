@@ -20,9 +20,15 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class Report : Page
     {
-        public Report()
+        MainWindow mainWindow;
+        public Report(MainWindow _mainWindow)
         {
             InitializeComponent();
+            mainWindow = _mainWindow;
+        }
+        public void TransitionBack(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.Main(mainWindow));
         }
     }
 }

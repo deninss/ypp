@@ -20,9 +20,15 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class AddComment : Page
     {
-        public AddComment()
+        MainWindow mainWindow;
+        public AddComment(MainWindow _mainWindow)
         {
             InitializeComponent();
+            mainWindow = _mainWindow;
+        }
+        public void TransitionBack(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.Main(mainWindow));
         }
     }
 }
