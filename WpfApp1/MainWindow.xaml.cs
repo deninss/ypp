@@ -24,11 +24,13 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
         public List<Request> RequestItem = new List<Request>();
+        public List<TypeOfFault> TypeOfFaultList = new List<TypeOfFault>();
         public MainWindow()
         {
             InitializeComponent();
             this.frame.Navigate(new Pages.Authorization(this));
         }
+
         public void LoadItem()
         {
             try
@@ -40,16 +42,16 @@ namespace WpfApp1
                 {
                     Classes.Request request = new Classes.Request
                     {
-                        Number = "Номер заявки: " + Convert.ToInt32(row["Number"]),
-                        StartDate = "Дата начала: " + Convert.ToString(row["StartDate"]),
-                        EndDate = "Дата конца: " + Convert.ToString(row["EndDate"]),
-                        Equipment = "Оборудование: " + row["Equipment"].ToString(),
-                        TypeOfFault = " Тип неисправности: " + Convert.ToInt32(row["TypeOfFault"]),
-                        Description = "Описание проблемы: " + row["Description"].ToString(),
-                        Client = "Клиент: " + Convert.ToInt32(row["Client"]),
-                        Performer = "Исполнитель: " + Convert.ToInt32(row["Performer"]),
-                        Status = "Статус: " + row["Status"].ToString(),
-                        PerformerComment = "Статус: " + row["Status"].ToString()
+                        Number = "Номер заявки: " + row["Number"],
+                        StartDate = "Дата начала: " + row["StartDate"],
+                        EndDate = "Дата конца: " + row["EndDate"],
+                        Equipment = "Оборудование: " + row["Equipment"],
+                        TypeOfFault = " Тип неисправности: " + row["TypeOfFault"],
+                        Description = "Описание проблемы: " + row["Description"],
+                        Client = "Клиент: " + row["Client"],
+                        Performer = "Исполнитель: " + row["Performer"],
+                        Status = "Статус: " + row["Status"],
+                        PerformerComment = "Статус: " + row["PerformerComment"]
                     };
                     RequestItem.Add(request);
                 }

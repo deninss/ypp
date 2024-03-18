@@ -27,18 +27,18 @@ namespace WpfApp1.Pages
             InitializeComponent();
 
             this.mainWindow = _mainWindow;
-           // mainWindow.LoadItem();
+            mainWindow.LoadItem();
             Load();
         }
         public void Load()
         {
             pagesListBox.Items.Clear();
-         /*   foreach (var page in mainWindow.RequestItem)
+            foreach (var page in mainWindow.RequestItem)
             {
                 RequestItem pageControl = new RequestItem();
                 pageControl.DataContext = page;
                 pagesListBox.Items.Add(pageControl);
-            }*/
+            }
         }
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -79,6 +79,7 @@ namespace WpfApp1.Pages
             Pages.Statistic addComment = new Statistic(mainWindow);
             addComment.ShowDialog();
         }
+
 
 
         public void Exit(object sender, RoutedEventArgs e)

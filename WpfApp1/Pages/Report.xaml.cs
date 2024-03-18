@@ -44,5 +44,9 @@ namespace WpfApp1.Pages
                 else if (textBox == Price) textBox.Text = "Введите стоимость";
             }
         }
+        public void CreateReport(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.Main(mainWindow));
+        }
     }
 }
