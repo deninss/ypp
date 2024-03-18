@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Classes;
 using WpfApp1.Item;
 
 namespace WpfApp1.Pages
@@ -29,13 +30,23 @@ namespace WpfApp1.Pages
             this.mainWindow = _mainWindow;
             mainWindow.LoadItem();
             Load();
+            if (User.Role == "Клиент")
+            {
+                AddRequstClient.Visibility = Visibility.Visible;
+                QRCodeClient.Visibility = Visibility.Visible;
+            }
+            else if (User.Role == "Менеджер")
+            {
+                StatisticManager.Visibility = Visibility.Visible;
+            }
+            
         }
         public void Load()
         {
             pagesListBox.Items.Clear();
             foreach (var page in mainWindow.RequestItem)
             {
-                RequestItem pageControl = new RequestItem();
+                RequestItem pageControl = new RequestItem(mainWindow,page);
                 pageControl.DataContext = page;
                 pagesListBox.Items.Add(pageControl);
             }
@@ -58,15 +69,10 @@ namespace WpfApp1.Pages
         }
         public void TransitionAddComment(object sender, RoutedEventArgs e)
         {
-            Pages.AddComment addComment = new AddComment(mainWindow);
+            Pages.RequestEdit addComment = new RequestEdit(mainWindow);
             addComment.ShowDialog();
         }
 
-        public void TransitionReport(object sender, RoutedEventArgs e)
-        {
-           Report report = new Report(mainWindow);
-            report.ShowDialog();
-        }
 
         public void TransitionQRCode(object sender, RoutedEventArgs e)
         {

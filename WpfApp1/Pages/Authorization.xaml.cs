@@ -30,7 +30,7 @@ namespace WpfApp1.Pages
         }
         public void ToComeIn(object sender, RoutedEventArgs e)
         {
-            if (Login.Text.Length != 0 && Password.Text.Length != 0)
+            if (Login.Text.Length != 0 && Password.Text.Length != 0 && Login.Text != "Введите логин" && Password.Text != "Введите пароль")
             {
                 try
                 {

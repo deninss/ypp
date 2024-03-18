@@ -42,16 +42,17 @@ namespace WpfApp1
                 {
                     Classes.Request request = new Classes.Request
                     {
-                        Number = "Номер заявки: " + row["Number"],
-                        StartDate = "Дата начала: " + row["StartDate"],
-                        EndDate = "Дата конца: " + row["EndDate"],
-                        Equipment = "Оборудование: " + row["Equipment"],
-                        TypeOfFault = " Тип неисправности: " + row["TypeOfFault"],
-                        Description = "Описание проблемы: " + row["Description"],
-                        Client = "Клиент: " + row["Client"],
-                        Performer = "Исполнитель: " + row["Performer"],
-                        Status = "Статус: " + row["Status"],
-                        PerformerComment = "Статус: " + row["PerformerComment"]
+                        Id = Convert.ToInt32(row["Id"]),
+                        Number = row["Number"].ToString(),
+                        StartDate = row["StartDate"].ToString(),
+                        EndDate = row["EndDate"].ToString(),
+                        Equipment = row["Equipment"].ToString(),
+                        TypeOfFault = row["TypeOfFault"].ToString(),
+                        Description = row["Description"].ToString(),
+                        Client = row["Client"].ToString(),
+                        Performer = row["Performer"].ToString(),
+                        Status = row["Status"].ToString(),
+                        PerformerComment = row["PerformerComment"].ToString()
                     };
                     RequestItem.Add(request);
                 }

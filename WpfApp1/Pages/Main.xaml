@@ -15,14 +15,14 @@
 
 
 
-        <Button Content="QRCode" Click="TransitionQRCode" FontSize="15" HorizontalAlignment="Right" Width="101" Margin="0,0,367,16" Height="32" VerticalAlignment="Bottom">
+        <Button  x:Name="QRCodeClient" Content="QRCode" Click="TransitionQRCode" FontSize="15" HorizontalAlignment="Right" Width="101" Margin="0,0,367,16" Height="32" VerticalAlignment="Bottom">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="Статистика" Click="TransitionStatistic" FontSize="15" HorizontalAlignment="Right" Width="100" Margin="0,0,144,16" Height="32" VerticalAlignment="Bottom">
+        <Button  x:Name="StatisticManager" Visibility="Hidden" Content="Статистика" Click="TransitionStatistic" FontSize="15" HorizontalAlignment="Right" Width="100" Margin="0,0,144,16" Height="32" VerticalAlignment="Bottom">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -37,15 +37,8 @@
             </Button.Resources>
         </Button>
 
-        <Button Content="Отчет" Click="TransitionReport" FontSize="15" HorizontalAlignment="Right" Width="80" Margin="0,0,266,16" Height="32" VerticalAlignment="Bottom">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-
-        <Button Content="Добавить" Click="AddRequest" FontSize="15" HorizontalAlignment="Right" Width="80" Margin="0,19,126,0" Height="32" VerticalAlignment="Top">
+ 
+        <Button Content="Добавить" Click="AddRequest"  x:Name="AddRequstClient" Visibility="Hidden" FontSize="15" HorizontalAlignment="Right" Width="80" Margin="0,19,126,0" Height="32" VerticalAlignment="Top">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>

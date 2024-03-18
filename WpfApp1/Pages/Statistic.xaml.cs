@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,10 +26,32 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
             mainWindow = _mainWindow;
+            try
+            {
+                DataTable query = Classes.DataBase.Select($"SELECT COUNT(*) FROM Requests where Status = '{2}';");
+                CountRequest.Content = "Количество выполненных заявок: " + query.Rows[0][0].ToString();
+                int complete = 0;
+                TimeSpan totalTime = new TimeSpan();
+                foreach (var row in mainWindow.RequestItem)
+                {
+                    if (row.Status == "2")
+                    {
+                        complete++;
+                        totalTime += DateTime.Parse(row.EndDate) - DateTime.Parse(row.StartDate);
+                    }
+                }
+                if (totalTime.Days == 0) AvarageTime.Content = "Среднее время выполнения заявки: " + totalTime.Days;
+                else AvarageTime.Content = "Среднее время выполнения заявки: " + totalTime.Days / complete + " день";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         public void TransitionBack(object sender, RoutedEventArgs e)
         {
-            this.Close();
+           this.Close();
         }
     }
 }
+

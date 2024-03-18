@@ -9,26 +9,58 @@
       Title="RequestEdit">
 
     <Grid Background="#f6f6f6">
-        <Label Content="Назад" Margin="20,10,307,192" FontSize="14" Opacity="0.6" FontWeight="Bold" MouseDown="TransitionBack"/>
-        <Label x:Name="z" Content="Добавление заявки" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0"/>
+        <Label Content="Назад" Margin="20,10,307,232" FontSize="14" Opacity="0.6" FontWeight="Bold" MouseDown="TransitionBack"/>
+        <Label x:Name="name" Content="Добавление заявки" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0"/>
+        <Grid  x:Name="RequestClientEdit" Visibility="Hidden">
+            <Label Content="Оборудование: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,72,0,0"/>
+            <TextBox x:Name="Materials" VerticalAlignment="Top" Margin="123,68,12,0" Height="30" VerticalContentAlignment="Center" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
 
-        <Label Content="Оборудование: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,72,0,0"/>
-        <TextBox x:Name="Equipment" Text="Введите стоимость" VerticalAlignment="Top" Margin="123,68,12,0" Height="30" VerticalContentAlignment="Center" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+
+            <Label Content="Тип неисправности: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,109,0,0"/>
+            <ComboBox  x:Name="comboBoxTypesOfFaults" Height="30" VerticalAlignment="Top" Margin="148,107,15,0"/>
+            <Label Content="Описание: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,152,0,0"/>
+
+            <TextBox x:Name="Description" VerticalAlignment="Top" Margin="98,150,15,0" Height="30" VerticalContentAlignment="Center" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+
+            <Button Content="Добавить" FontSize="16" FontWeight="Bold" Margin="15,197,15,0" Height="37" VerticalAlignment="Top">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+        <Grid  x:Name="RequestManagerEdit" Visibility="Hidden">
+            <Label Content="Исполнитель: " HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0"/>
+            <ComboBox x:Name="comboBoxPerformer" Width="200" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0"/>
+            <Label Content="Дата окончания: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,73,0,0"/>
+
+            <TextBox x:Name="EndDate" VerticalAlignment="Top" Margin="140,73,60,0" Height="30" VerticalContentAlignment="Center" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
 
 
-        <Label Content="Тип неисправности: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,109,0,0"/>
-        <ComboBox  x:Name="comboBoxTypesOfFaults" Height="30" VerticalAlignment="Top" Margin="148,107,15,0"/>
-        <Label Content="Описание: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,152,0,0"/>
+            <Button Content="Изменить" Click="UpDateRequestManager" FontSize="16" FontWeight="Bold" Margin="15,197,15,0" Height="37" VerticalAlignment="Top">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+        <Grid x:Name="RequestPerformerEdit" Visibility="Hidden">
+            <Label Content="Статус: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="36,135,0,0"/>
+            <ComboBox x:Name="comboBoxStatus" Width="200" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="140,137,0,0"/>
+            <Label Content="Комментарий: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,77,0,0"/>
 
-        <TextBox x:Name="Description" Text="Введите стоимость" VerticalAlignment="Top" Margin="98,150,15,0" Height="30" VerticalContentAlignment="Center" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+            <TextBox x:Name="CommentPerformer"  VerticalAlignment="Top" Margin="140,73,60,0" Height="30" VerticalContentAlignment="Center" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
 
-        <Button Content="Добавить" FontSize="16" FontWeight="Bold" Margin="15,197,15,0" Height="37" VerticalAlignment="Top">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-        </Button>
 
+            <Button Content="Изменить" Click="UpDateRequestPerformer" FontSize="16" FontWeight="Bold" Margin="15,197,15,0" Height="37" VerticalAlignment="Top">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
     </Grid>
 </Window>

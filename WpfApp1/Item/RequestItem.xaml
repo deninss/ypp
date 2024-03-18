@@ -7,15 +7,54 @@
              mc:Ignorable="d" >
     <Border CornerRadius="20" BorderThickness="1" Background="#f6f6f6" Padding="10" Margin="5">
         <Grid>
-            <TextBlock Text="{Binding Number}" Width="200" Height="25" Margin="5,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <TextBlock Text="{Binding StartDate}" Width="200" Height="25" Margin="5,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <TextBlock Text="{Binding EndDate}" Width="200" Height="25" Margin="5,55,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <TextBlock Text="{Binding Equipment}" Width="200" Height="25" Margin="215,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <TextBlock Text="{Binding TypeOfFault}" Width="200" Height="25" Margin="215,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <TextBlock Text="{Binding Description}" Width="200" Height="25" Margin="215,55,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <TextBlock Text="{Binding Client}" Width="200" Height="25" Margin="425,5,5,5" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <TextBlock Text="{Binding Performer}" Width="200" Height="25" Margin="425,30,5,5" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <TextBlock Text="{Binding Status}" Width="200" Height="25" Margin="425,55,5,5" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock x:Name="Number" Width="200" Height="25" Margin="5,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock x:Name="StartDate" Width="200" Height="25" Margin="5,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock x:Name="EndDate" Width="200" Height="25" Margin="5,55,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock x:Name="Equipment" Width="200" Height="25" Margin="215,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock x:Name="TypeOfFault" Width="200" Height="25" Margin="215,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock x:Name="Description" Width="200" Height="25" Margin="215,55,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock x:Name="Client" Width="200" Height="25" Margin="425,5,5,5" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock x:Name="Performer" Width="200" Height="25" Margin="425,30,5,5" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock x:Name="Status" Width="200" Height="25" Margin="425,55,5,5" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock Text="" Width="200" Height="25" Margin="635,5,5,5" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock Text="" Width="200" Height="25" Margin="635,30,5,5" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock Text="" Width="200" Height="25" Margin="635,55,5,5" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+            <Button Visibility="Hidden" Content="Изменить исполнителя" Click="TransitionUpDateRequestManager" x:Name="ChangeArtist" FontSize="16"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="110,30,10,0" Height="25" Width="150" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Visibility="Hidden" Content="Изменить статус" Click="TransitionUpDateRequestManager" x:Name="ChangeStatus" FontSize="16"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="110,30,10,0" Height="25" Width="150" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Visibility="Hidden" Content="Создать отчет" Click="TransitionChangeReport" x:Name="ChangeReport" FontSize="16"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="110,60,10,0" Height="25" Width="150" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Visibility="Hidden" Content="Изменить заявку" Click="TransitionUpDateRequestManager" x:Name="ChangeRequest" FontSize="16"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="110,30,10,0" Height="25" Width="150" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Content="удaлить" Visibility="Hidden" x:Name="Delete" Click="DeleteRequst" FontSize="16"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,72,10,0" Height="25" Width="150" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </Grid>
     </Border>
 </UserControl>

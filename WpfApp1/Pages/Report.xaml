@@ -13,7 +13,7 @@
         <Label Content="Отчет" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0"/>
 
         <Label Content="Материалы: " HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="10,40,0,0" FontWeight="Bold" FontSize="16" Height="30"/>
-        <TextBox x:Name="Equipment" Text="Введите материалы которые вы потратили на эту заявку" VerticalAlignment="Top" Margin="120,40,10,0" Height="30" VerticalContentAlignment="Center" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+        <TextBox x:Name="Materials" Text="Введите материалы которые вы потратили на эту заявку" VerticalAlignment="Top" Margin="120,40,10,0" Height="30" VerticalContentAlignment="Center" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
         <Label Content="Стоимость: " HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="10,84,0,0" FontWeight="Bold" FontSize="16" Height="30"/>
         <TextBox x:Name="Price" Text="Введите стоимость" VerticalAlignment="Top" Margin="120,84,10,0" Height="30" VerticalContentAlignment="Center" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
 
