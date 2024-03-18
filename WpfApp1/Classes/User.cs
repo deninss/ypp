@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Yp_01_Decktop.Classes
+namespace WpfApp1.Classes
 {
     public class User
     {

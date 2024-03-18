@@ -1,15 +1,15 @@
-﻿using System;
+﻿using MessagingToolkit.QRCode.Codec;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
-using MessagingToolkit.QRCode.Codec;
-using System.Drawing;
 
-namespace Yp_01_Decktop.Classes
+namespace WpfApp1.Classes
 {
     public class QRCode
     {
